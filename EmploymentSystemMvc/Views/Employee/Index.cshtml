@@ -1,0 +1,32 @@
+﻿@model List<EmployeeSystem.Models.Employee>
+<h2>List of Employees</h2>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Mobile No</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(int i = 0; i < Model.Count; i++) 
+        {
+            <tr>
+                <td>@Model[i].FullName</td>
+                <td>@Model[i].EmployeeCode</td>
+                <td>@Model[i].MobileNo</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@Model[i].EmployeeId">View Detail</a>
+                </td>
+            
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Form">New Employee</a>
+    </div>
+
+</div>

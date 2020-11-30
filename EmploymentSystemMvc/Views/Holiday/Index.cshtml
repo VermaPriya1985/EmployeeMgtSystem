@@ -1,0 +1,35 @@
+﻿@model List<EmployeeSystem.Models.Holiday>
+<h2>List of Holidays</h2>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">From Date</th>
+                <th scope="col">To Date</th>
+                <th scope="col">Holiday</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(int i = 0; i < Model.Count; i++) 
+        {
+            <tr>
+                <td>@Model[i].FromDate</td>
+                <td>@Model[i].ToDate</td>
+                <td>@Model[i].HolidayName</td>
+                <td>@Model[i].Comments</td> 
+                  <td>
+                 
+                    <a asp-action="Edit" asp-route-id="@Model[i].HolidayId">Edit Holiday</a>
+                </td>
+            
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Form">New Holiday</a>
+    </div>
+
+</div>
