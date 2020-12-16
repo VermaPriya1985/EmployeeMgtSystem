@@ -9,6 +9,7 @@
                 <th scope="col">Leave Type</th>
                 <th scope="col">Reason</th>
                 <th scope="col">Leave Status</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -20,9 +21,9 @@
                 <td>@Model[i].LeaveType</td>
                 <td>@Model[i].Reason</td> 
                 <td>@Model[i].LeaveStatus</td> 
-               <!--   <td>
-                    <a asp-action="Edit" asp-route-id="@Model[i].LeaveId">Edit Concern</a>
-                </td>-->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model[i].LeaveId">Edit Leave</a>
+                </td>
             
             </tr>
         }

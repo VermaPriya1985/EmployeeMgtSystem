@@ -27,15 +27,32 @@ namespace EmployeeSystem.Models
         public int Status { get; private set; }
         */
 
-       // Data Members
+
+        public Leave(Guid leaveid, Employee employee, 
+        DateTime fromdate,DateTime todate,string leavetype, string reason,
+        string leavestatus) 
+        {
+                LeaveId = leaveid;
+                Employee = employee;
+                FromDate= fromdate;
+                ToDate = todate;
+                LeaveType = leavetype;
+                Reason = reason;
+                LeaveStatus = leavestatus;
+
+        } 
+
+       
+        // Data Members
         public Guid LeaveId { get;set; }
-        public long EmployeeId { get;set; }
+        public Employee Employee { get; private set; }
+        // public Guid EmployeeId { get;set; }
         public DateTime FromDate { get;  set; }
         public DateTime ToDate { get;  set; }
         public string LeaveType { get;  set; }
         public string Reason { get;  set; }
         public string LeaveStatus { get;  set; }
-        // public int Status { get;  set; }
+        
         
     }
 }

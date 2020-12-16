@@ -26,25 +26,25 @@ namespace EmploymentSystemMvc.Controllers
             return View(concern);
         }
 
-        /* public IActionResult Edit(Guid id) 
+        public IActionResult Edit(Guid id) 
         {
-            // Get the holiday from the EmployeeManagement
-            var holiday = _employee.GetById(id);
+            // Get the concern from the EmployeeManagement
+            var concern = _employee.GetByConcernId(id);
 
             // build the view model
-            var holidayViewModel = new HolidayViewModel() 
+            var concernViewModel = new ConcernViewModel() 
             {
-                FromDate = holiday.FromDate,
-                ToDate = holiday.ToDate,
-                HolidayName = holiday.HolidayName,
-                Comments = holiday.Comments
+                // ConcernDate = concern.ConcernDate,
+                ConcernType = concern.ConcernType,
+                ConcernRemarks = concern.ConcernRemarks,
+                ConcernStatus = concern.ConcernStatus,
+                ConcernId = id
             };
-
 
             // send the view model
             ViewBag.IsEditing = true;
-            return View("Form", holidayViewModel);
-        } */
+            return View("Form", concernViewModel);
+        } 
 
         public IActionResult Form() 
         {
@@ -52,20 +52,34 @@ namespace EmploymentSystemMvc.Controllers
             return View();
         }
         
+          /* _employee.AddNewConcern(Guid.NewGuid(),newConcern.EmployeeId,
+                newConcern.ConcernDate, newConcern.ConcernType,newConcern.ConcernRemarks,newConcern.ConcernStatus);
+                return RedirectToAction("Index", "Book");
+                */
+
         [HttpPost]
         public IActionResult Create(ConcernViewModel newConcern) 
         {
             if(ModelState.IsValid) 
             {
+              
+
                 var concernToCreate = new Concern() 
                 {
+                    ConcernId = Guid.NewGuid(),
+                    // EmployeeId = newConcern.EmployeeId, 
+                    // Guid.NewGuid(),
+                    // newConcern.EmployeeId,
+                    ConcernDate = DateTime.Now,
+                    // newConcern.ConcernDate, 
                     ConcernType = newConcern.ConcernType,
-                    Remarks = newConcern.Remarks,
-                    ConcernStatus = newConcern.ConcernStatus,
-                    ConcernId = Guid.NewGuid()
+                    ConcernRemarks = newConcern.ConcernRemarks,
+                    ConcernStatus = newConcern.ConcernStatus
+                    
                      
                 };
-                _employee.AddNewConcern(concernToCreate);
+                _employee.AddNewConcern(concernToCreate); 
+                
                 return RedirectToAction("Index");
             } 
             else 
@@ -74,31 +88,31 @@ namespace EmploymentSystemMvc.Controllers
             }
         }
 
-        /*[HttpPost]
-        public IActionResult Update(HolidayViewModel updatedHoliday) 
+        [HttpPost]
+        public IActionResult Update(ConcernViewModel updatedConcern) 
         {
             if (ModelState.IsValid) 
             {
-                var holidayToUpdate = new Holiday() 
+                var concernToUpdate = new Concern() 
                  {
-                    FromDate = updatedHoliday.FromDate,
-                    ToDate = updatedHoliday.ToDate,
-                    HolidayName = updatedHoliday.HolidayName,
-                    Comments = updatedHoliday.Comments,
-                    HolidayId = updatedHoliday.HolidayId.Value
-                    // HolidayId = updatedHoliday.HolidayId.Value
+                    ConcernId = updatedConcern.ConcernId.Value,
+                    ConcernDate = DateTime.Now,
+                    ConcernType = updatedConcern.ConcernType,
+                    ConcernRemarks = updatedConcern.ConcernRemarks,
+                    ConcernStatus = updatedConcern.ConcernStatus
+                    
+                    
                  };
-                // _employee.AddNewHoliday(holiday);
-                _employee.UpdateHoliday(holidayToUpdate);
-                return RedirectToAction("Index");
+                _employee.UpdateConcern(concernToUpdate);
+                 return RedirectToAction("Index");
             } 
             else 
             {
                 ViewBag.IsEditing = true;
-                return View("Form", updatedHoliday);
+                return View("Form", updatedConcern);
             }
 
-        } */
+        } 
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

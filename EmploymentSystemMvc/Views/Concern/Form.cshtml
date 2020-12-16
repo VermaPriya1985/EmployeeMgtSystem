@@ -3,12 +3,12 @@
     string pageTitle = "New Concern";
     string action = "Create";
 
-    /*if (ViewBag.IsEditing == true) 
+    if (ViewBag.IsEditing == true) 
     {
         // Editing
         pageTitle = "Update Concern";
         action = "Update";
-    }*/
+    }
 }
 <div>
     <h2>@pageTitle</h2>
@@ -26,9 +26,9 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Remarks">Remarks</label>
-                <input type="text" class="form-control" height="100" asp-for="Remarks">
-                <span class="text-danger" asp-validation-for="Remarks"></span>
+                <label asp-for="ConcernRemarks">Remarks</label>
+                <input type="text" class="form-control" height="100" asp-for="ConcernRemarks">
+                <span class="text-danger" asp-validation-for="ConcernRemarks"></span>
             </div>
            
             <div class="form-group">

@@ -8,15 +8,14 @@ namespace EmployeeSystem
     {
         
        public EmployeeManagement(IStoreEmployee employeeStorage,
-       IStoreLeave leaveStorage,IStoreHoliday holidayStorage,
-       IStoreAttendance attendanceStorage, IStoreConcern concernStorage)
+       IStoreLeave leaveStorage,IStoreHoliday holidayStorage, IStoreConcern concernStorage)
        {
         
         // Init storage using Dependency Injection
         _employeeStorage = employeeStorage;
         _leaveStorage = leaveStorage;
         _holidayStorage = holidayStorage;
-        _attendanceStorage = attendanceStorage;
+        // _attendanceStorage = attendanceStorage;
         _concernStorage = concernStorage;
 
         // Create Sample Employee,LEave etc
@@ -25,33 +24,32 @@ namespace EmployeeSystem
         // _employeeStorage.Create(new Employee(1, "Priya","Verma","Female","P001","Retallack Street","S4S3B9","MSCIT","5 years","1234567890","priya@gmail.com",dateofbirth,dateofjoining,"Ludhiana","Web Developer","Temporary","Single",1));
         // _employeeStorage.Create(new Employee(2, "JIYA","Verma","Female","P001","Retallack Street","S4S3B9","MSCIT","5 years","1234567890","priya@gmail.com",dateofbirth,dateofjoining,"Ludhiana","Web Developer","Temporary","Single",1));
 
-        var newemployee= new Employee()
+        /* var newemployee= new Employee()
             {
                 EmployeeId=Guid.NewGuid(),
                 FirstName="Priya",
                 LastName="Verma",
                 Gender="Female",
-                EmployeeCode="P001",
+                // EmployeeCode="P001",
                 Address="Retallack Street",
-                PostalCode="S4S3B9",
+                // PostalCode="S4S3B9",
                 Qualification="Masters",
                 Experience="5 years",
                 MobileNo="1234567890",
-                Email="verpriya@gmail.com",
-                DateOfBirth=dateofbirth,
-                DateOfJoining=dateofjoining,
-                BranchName="regina",
+                // Email="verpriya@gmail.com",
+                DateofBirth=dateofbirth,
+                DateofJoining=dateofjoining,
+                // BranchName="regina",
                 Designation="Developer",
                 EmploymentType="Permanent",
-                MaritalStatus="Married",
-                Status=1
+                // MaritalStatus="Married",
+                // Status=1
             };
-
+            
         _employeeStorage.Create(newemployee);
+        */
         
-
-        
-        DateTime fromdate =  Convert.ToDateTime("12-01-2020");
+        /* DateTime fromdate =  Convert.ToDateTime("12-01-2020");
         DateTime todate =  Convert.ToDateTime("12-05-2010");
         // _leaveStorage.Mark(new Leave(1,1,fromdate,todate,"Sick Leave","Disapproved",1));
         // _leaveStorage.Mark(new Leave(2,2,fromdate,todate,"Urgent Leave","Disapproved",1));
@@ -59,7 +57,7 @@ namespace EmployeeSystem
         var newleave= new Leave()
             {
                 LeaveId=Guid.NewGuid(),
-                EmployeeId=1,
+                EmployeeId=Guid.NewGuid(),
                 FromDate=fromdate,
                 ToDate=todate,
                 LeaveType="Sick",
@@ -69,14 +67,15 @@ namespace EmployeeSystem
             };
 
         _leaveStorage.Mark(newleave);
+          */
           
 
-
+        // Date holidayfromdate =  Convert.ToDate("12-01-2020");
         DateTime holidayfromdate =  Convert.ToDateTime("12-01-2020");
         DateTime holidaytodate =  Convert.ToDateTime("12-01-2020");
         // _holidayStorage.Create(new Holiday(1,holidayfromdate,holidaytodate,"Diwali","Diwali Holiday",1));
 
-         var newholiday= new Holiday()
+        /* var newholiday= new Holiday()
             {
                 HolidayId=Guid.NewGuid(),
                 FromDate=holidayfromdate,
@@ -87,15 +86,17 @@ namespace EmployeeSystem
             };
 
         _holidayStorage.Create(newholiday);
-          
+        */
+        
 
-        DateTime attendancedate =  Convert.ToDateTime("11-17-2020");
+        /* DateTime attendancedate =  Convert.ToDateTime("11-17-2020");
         DateTime intime =  Convert.ToDateTime("11-17-2020 9:00:00");
         DateTime outtime = Convert.ToDateTime("11-17-2020 5:00:00");
-        
+        */
+
         // _attendanceStorage.Mark(new Attendance(1,1,attendancedate,intime,outtime,1));
 
-        var newattendance= new Attendance()
+        /* var newattendance= new Attendance()
             {
                 AttendanceId=1,
                 EmployeeId=1,
@@ -106,22 +107,20 @@ namespace EmployeeSystem
             };
 
         _attendanceStorage.Mark(newattendance);
-         
+         */
 
-        DateTime concerndate =  Convert.ToDateTime("12-01-2019");
-        // _concernStorage.Create(new Concern(1,1,concerndate,"Suggestion","Remarkssss","Open",1));
+        /* DateTime concerndate =  Convert.ToDateTime("12-01-2019");
         var newconcern= new Concern()
             {
                 ConcernId=Guid.NewGuid(),
-                EmployeeId=1,
+                EmployeeId=Guid.NewGuid(),
                 ConcernDate=concerndate,
                 ConcernType="Suggestion",
-                Remarks="Remarkssss",
+                ConcernRemarks="Remarkssss",
                 ConcernStatus="Open"
             };
 
-        _concernStorage.Create(newconcern);
-        
+        _concernStorage.Create(newconcern);*/
 
     }
 
@@ -129,7 +128,7 @@ namespace EmployeeSystem
         private readonly IStoreEmployee _employeeStorage;
         private readonly IStoreLeave _leaveStorage;
         private readonly IStoreHoliday _holidayStorage;
-        private readonly IStoreAttendance _attendanceStorage;
+        // private readonly IStoreAttendance _attendanceStorage;
         private readonly IStoreConcern _concernStorage;
 
         /*** METHODS ***/
@@ -191,6 +190,14 @@ namespace EmployeeSystem
             _leaveStorage.Mark(newLeave);
             return newLeave;
         }
+        public Leave GetByLeaveId(Guid id)
+        {
+            return _leaveStorage.GetById(id);
+        }
+        public void UpdateLeave(Leave updateLeave) 
+        {
+            _leaveStorage.Update(updateLeave);
+        }
 
         
         /*** METHODS ***/
@@ -223,7 +230,7 @@ namespace EmployeeSystem
         }
 
         /*** METHODS FOR ATTENDANCE ***/
-        public List<Attendance> GetAllAttendance()
+        /* public List<Attendance> GetAllAttendance()
         {
             return _attendanceStorage.GetAll();      
         }
@@ -233,7 +240,7 @@ namespace EmployeeSystem
             
             _attendanceStorage.Mark(newAttendance);
             return newAttendance;
-        }
+        }*/
        
         /*** METHODS FOR CONCERN ***/
         public List<Concern> SearchForConcern(string titleToSearch)

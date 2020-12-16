@@ -8,7 +8,7 @@
                 <th scope="col">Concern Type</th>
                 <th scope="col">Remarks</th>
                 <th scope="col">Concern Status</th>
-                <!--<th scope="col"></th>-->
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -17,11 +17,11 @@
             <tr>
                 <td>@Model[i].ConcernDate</td>
                 <td>@Model[i].ConcernType</td>
-                <td>@Model[i].Remarks</td>
+                <td>@Model[i].ConcernRemarks</td>
                 <td>@Model[i].ConcernStatus</td> 
-               <!--   <td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@Model[i].ConcernId">Edit Concern</a>
-                </td>-->
+                </td>
             
             </tr>
         }

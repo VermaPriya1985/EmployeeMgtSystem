@@ -9,5 +9,6 @@ namespace EmployeeSystem.Storage
         List<Leave> GetAll();
         string Approve(Guid leaveid,string leavestatus);
         Leave GetById(Guid leaveid);
+        void Update(Leave updateLeave);
     }
 }

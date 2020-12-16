@@ -73,22 +73,21 @@ namespace EmployeeSystem.Models
                 return fullName;
             }
         }
-        
         public string Gender { get;  set; }
-        public string EmployeeCode { get;  set; }
+        // public string EmployeeCode { get;  set; }
         public string Address { get;  set; }
-        public string PostalCode { get;  set; }
+        // public string PostalCode { get;  set; }
         public string Qualification { get;  set; }
         public string Experience { get;  set; }
         public string MobileNo { get;  set; }
-        public string Email { get;  set; }
-        public DateTime DateOfBirth { get;  set; }
-        public DateTime DateOfJoining { get;  set; }
-        public string BranchName { get;  set; }
+        // public string Email { get;  set; }
+        public DateTime DateofBirth { get;  set; }
+        public DateTime DateofJoining { get;  set; }
+        // public string BranchName { get;  set; }
         public string Designation { get;  set; }
         public string EmploymentType { get;  set; }
-        public string MaritalStatus { get;  set; }
-        public int Status { get;  set; }
+        // public string MaritalStatus { get;  set; }
+        // public int Status { get;  set; }
        
     }
 }

@@ -43,8 +43,17 @@ namespace EmploymentSystemMvc.Controllers
             {
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
-                //HolidayName = holiday.HolidayName,
-                //Comments = holiday.Comments
+                Gender = employee.Gender,
+                Address = employee.Address,
+                Qualification = employee.Qualification,
+                Experience = employee.Experience,
+                MobileNo = employee.MobileNo,
+                DateofBirth = employee.DateofBirth,
+                DateofJoining = employee.DateofJoining,
+                Designation = employee.Designation,
+                EmploymentType = employee.EmploymentType,
+                EmployeeId = id
+                
             };
 
 
@@ -68,6 +77,15 @@ namespace EmploymentSystemMvc.Controllers
                 {
                     FirstName = newEmployee.FirstName,
                     LastName = newEmployee.LastName,
+                    Gender = newEmployee.Gender,
+                    Address = newEmployee.Address,
+                    Qualification = newEmployee.Qualification,
+                    Experience = newEmployee.Experience,
+                    MobileNo = newEmployee.MobileNo,
+                    DateofBirth = newEmployee.DateofBirth,
+                    DateofJoining = newEmployee.DateofJoining,
+                    Designation = newEmployee.Designation,
+                    EmploymentType = newEmployee.EmploymentType,
                     EmployeeId = Guid.NewGuid()
                      
                 };
@@ -89,6 +107,15 @@ namespace EmploymentSystemMvc.Controllers
                 {
                     FirstName = updatedEmployee.FirstName,
                     LastName = updatedEmployee.LastName,
+                    Gender = updatedEmployee.Gender,
+                    Address = updatedEmployee.Address,
+                    Qualification = updatedEmployee.Qualification,
+                    Experience = updatedEmployee.Experience,
+                    MobileNo = updatedEmployee.MobileNo,
+                    DateofBirth = updatedEmployee.DateofBirth,
+                    DateofJoining = updatedEmployee.DateofJoining,
+                    Designation = updatedEmployee.Designation,
+                    EmploymentType = updatedEmployee.EmploymentType,
                     EmployeeId = updatedEmployee.EmployeeId.Value
                 };
                 // _employee.AddNewHoliday(holiday);

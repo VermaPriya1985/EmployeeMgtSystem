@@ -39,6 +39,15 @@ namespace EmployeeSystem.Storage
 
             return leave;
         }
+        public void Update(Leave updateLeave) 
+         {
+            var leave = GetById(updateLeave.LeaveId);
+            leave.FromDate = updateLeave.FromDate;
+            leave.ToDate = updateLeave.ToDate;
+            leave.LeaveType = updateLeave.LeaveType;
+            leave.Reason = updateLeave.Reason;
+            leave.LeaveStatus = updateLeave.LeaveStatus;
+        }
 
         public List<Leave> GetAll()
         {

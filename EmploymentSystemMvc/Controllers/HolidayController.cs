@@ -30,14 +30,15 @@ namespace EmploymentSystemMvc.Controllers
         {
             // Get the holiday from the EmployeeManagement
             var holiday = _employee.GetById(id);
-
+            
             // build the view model
             var holidayViewModel = new HolidayViewModel() 
             {
                 FromDate = holiday.FromDate,
                 ToDate = holiday.ToDate,
                 HolidayName = holiday.HolidayName,
-                Comments = holiday.Comments
+                Comments = holiday.Comments,
+                HolidayId = id 
             };
 
 

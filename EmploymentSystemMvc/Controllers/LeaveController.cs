@@ -26,7 +26,28 @@ namespace EmploymentSystemMvc.Controllers
             return View(leave);
         }
 
-        
+        public IActionResult Edit(Guid id) 
+        {
+            // Get the holiday from the EmployeeManagement
+            var leave = _employee.GetByLeaveId(id);
+            
+            // build the view model
+            var leaveViewModel = new LeaveViewModel() 
+            {
+                FromDate = leave.FromDate,
+                ToDate = leave.ToDate,
+                LeaveType = leave.LeaveType,
+                Reason = leave.Reason,
+                LeaveStatus = leave.LeaveStatus,
+                LeaveId = id 
+            };
+
+
+            // send the view model
+            ViewBag.IsEditing = true;
+            return View("Form", leaveViewModel);
+        }
+
         public IActionResult Form() 
         {
             ViewBag.IsEditing = false;
@@ -38,17 +59,20 @@ namespace EmploymentSystemMvc.Controllers
         {
             if(ModelState.IsValid) 
             {
-                var leaveToCreate = new Leave() 
+               /*  var leaveToCreate = new Leave() 
                 {
                     FromDate = newLeave.FromDate,
                     ToDate = newLeave.ToDate,
                     LeaveType = newLeave.LeaveType,
                     Reason = newLeave.Reason,
                     LeaveStatus = "Pending",
+                    // LeaveStatus = newLeave.LeaveStatus,
                     LeaveId = Guid.NewGuid()
                      
                 };
                 _employee.Mark(leaveToCreate);
+                */
+                
                 return RedirectToAction("Index");
             } 
             else 
@@ -57,31 +81,34 @@ namespace EmploymentSystemMvc.Controllers
             }
         }
 
-        /*[HttpPost]
-        public IActionResult Update(HolidayViewModel updatedHoliday) 
+        [HttpPost]
+        public IActionResult Update(LeaveViewModel updatedLeave) 
         {
             if (ModelState.IsValid) 
             {
-                var holidayToUpdate = new Holiday() 
+               /*  var leaveToUpdate = new Leave() 
                  {
-                    FromDate = updatedHoliday.FromDate,
-                    ToDate = updatedHoliday.ToDate,
-                    HolidayName = updatedHoliday.HolidayName,
-                    Comments = updatedHoliday.Comments,
-                    HolidayId = updatedHoliday.HolidayId.Value
-                    // HolidayId = updatedHoliday.HolidayId.Value
+                    FromDate = updatedLeave.FromDate,
+                    ToDate = updatedLeave.ToDate,
+                    LeaveType = updatedLeave.LeaveType,
+                    Reason = updatedLeave.Reason,
+                    LeaveStatus = "Pending",
+                    LeaveId = updatedLeave.LeaveId.Value
+                    
                  };
-                // _employee.AddNewHoliday(holiday);
-                _employee.UpdateHoliday(holidayToUpdate);
+                
+                _employee.UpdateLeave(leaveToUpdate);
+                */
+                
                 return RedirectToAction("Index");
             } 
             else 
             {
                 ViewBag.IsEditing = true;
-                return View("Form", updatedHoliday);
+                return View("Form", updatedLeave);
             }
 
-        } */
+        } 
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

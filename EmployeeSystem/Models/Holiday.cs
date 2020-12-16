@@ -29,7 +29,6 @@ namespace EmployeeSystem.Models
         public DateTime ToDate { get;  set; }
         public string HolidayName { get;  set; }
         public string Comments { get;  set; }
-        
         // public int Status { get;  set; }
     
     }

@@ -27,6 +27,73 @@
                 <span class="text-danger" asp-validation-for="LastName"></span>
             </div>
            
+            <div class="form-group">
+                <label asp-for="Gender">Gender</label>
+                <select id="drpgender" class="form-control" asp-for="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Gender"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Address">Address</label>
+                <input type="text" class="form-control" asp-for="Address">
+                <span class="text-danger" asp-validation-for="Address"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="MobileNo">Mobile Number</label>
+                <input type="number" class="form-control" asp-for="MobileNo">
+                <span class="text-danger" asp-validation-for="MobileNo"></span>
+            </div>
+           
+           <div class="form-group">
+                <label asp-for="DateofBirth">Date of Birth</label>
+                <input type="date" class="form-control" asp-for="DateofBirth">
+                <span class="text-danger" asp-validation-for="DateofBirth"></span>
+            </div>
+
+
+           <div class="form-group">
+                <label asp-for="DateofJoining">Date of Joining</label>
+                <input type="date" class="form-control" asp-for="DateofJoining">
+                <span class="text-danger" asp-validation-for="DateofJoining"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmploymentType">Employment Type</label>
+                <select id="drpemploymenttype" class="form-control" asp-for="EmploymentType">
+                    <option value="fulltime">Full Time</option>
+                    <option value="parttime">Part Time</option>
+                </select>
+                <span class="text-danger" asp-validation-for="EmploymentType"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Designation">Designation</label>
+                <select id="drpdesignation" class="form-control" asp-for="Designation">
+                    <option value="softwaredeveloper">Software Developer</option>
+                    <option value="webdesigner">Web Designer</option>
+                    <option value="qa">QA</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Designation"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Qualification">Qualification</label>
+                <input type="text" class="form-control" asp-for="Qualification">
+                <span class="text-danger" asp-validation-for="Qualification"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label asp-for="Experience">Experience</label>
+                <input type="text" class="form-control" asp-for="Experience">
+                <span class="text-danger" asp-validation-for="Experience"></span>
+            </div>
+
+
             <button type="submit" class="btn btn-success">Save</button>
         </form>
     </div>

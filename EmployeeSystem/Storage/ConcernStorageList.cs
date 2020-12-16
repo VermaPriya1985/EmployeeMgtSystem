@@ -7,7 +7,6 @@ namespace EmployeeSystem.Storage
     public class ConcernStorageList : IStoreConcern
     {
         private readonly List<Concern> _concernList;
-        
         // Constructor
         public ConcernStorageList()
         {
@@ -21,10 +20,10 @@ namespace EmployeeSystem.Storage
         }
         
         public void Update(Concern updateConcern) 
-         {
+        {
             var concern = GetById(updateConcern.ConcernId);
             concern.ConcernType = updateConcern.ConcernType;
-            concern.Remarks = updateConcern.Remarks;
+            concern.ConcernRemarks = updateConcern.ConcernRemarks;
             concern.ConcernStatus = updateConcern.ConcernStatus;
             
         }
@@ -40,13 +39,11 @@ namespace EmployeeSystem.Storage
 
             return concern;
         }
-        
         public List<Concern> GetByName(string concerntype)
         {
             return _concernList.Where(x => x.ConcernType.ToLower() == concerntype.ToLower()).ToList();
     
         }
-
         public List<Concern> GetAll()
         {
             return _concernList;

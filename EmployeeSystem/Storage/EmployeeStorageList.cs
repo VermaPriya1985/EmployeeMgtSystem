@@ -25,6 +25,15 @@ namespace EmployeeSystem.Storage
             var employee = GetById(updateEmployee.EmployeeId);
             employee.FirstName = updateEmployee.FirstName;
             employee.LastName = updateEmployee.LastName;
+            employee.Gender = updateEmployee.Gender;
+            employee.Address = updateEmployee.Address;
+            employee.Qualification = updateEmployee.Qualification;
+            employee.Experience = updateEmployee.Experience;
+            employee.MobileNo = updateEmployee.MobileNo;
+            employee.DateofBirth = updateEmployee.DateofBirth;
+            employee.DateofJoining = updateEmployee.DateofJoining;
+            employee.Designation = updateEmployee.Designation;
+            employee.EmploymentType = updateEmployee.EmploymentType;
             
         }
         

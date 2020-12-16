@@ -14,11 +14,11 @@ namespace EmployeeSystem
             var employeeStorage = new EmployeeStorageList();
             var leaveStorage = new LeaveStorageList();
             var holidayStorage = new HolidayStorageList();
-            var attendanceStorage = new AttendanceStorageList();
+            // var attendanceStorage = new AttendanceStorageList();
             var concernStorage = new ConcernStorageList();
 
             EmployeeManagement theEmployee = new EmployeeManagement(employeeStorage,
-            leaveStorage,holidayStorage,attendanceStorage,concernStorage);
+            leaveStorage,holidayStorage,concernStorage);
             Console.WriteLine("Welcome to the Employee Management System!");
             
             /* while(true)

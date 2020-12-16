@@ -3,12 +3,12 @@
     string pageTitle = "New Leave";
     string action = "Create";
 
-    /*if (ViewBag.IsEditing == true) 
+    if (ViewBag.IsEditing == true) 
     {
         // Editing
         pageTitle = "Update Concern";
         action = "Update";
-    }*/
+    }
 }
 <div>
     <h2>@pageTitle</h2>
@@ -41,7 +41,8 @@
 
             <div class="form-group">
                 <label asp-for="Reason">Reason</label>
-                <input type="text" class="form-control" height="100" asp-for="Reason">
+                <textarea class="form-control" asp-for="Reason" rows="4" cols="50"></textarea>
+                <!--<input type="text" class="form-control" height="100" asp-for="Reason">-->
                 <span class="text-danger" asp-validation-for="Reason"></span>
             </div>
            
