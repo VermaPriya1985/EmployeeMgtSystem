@@ -10,3 +10,4 @@ The engine, or logic layer of the application, consists of 'Plants', and 'Wateri
 The NextWateringDate for a plant is calculated by taking the most recent watering date, and adding the DaysBetweenWaterings value onto it. This is displayed to the user.
 
 The 'Garden' class is the main engine class. This is where the main actions of the application are defined. This includes CRUD operations on the Plant object, as well as the ability to Water a plant.
+c
